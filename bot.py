@@ -6,15 +6,7 @@ import answer
 TOKEN = "6049447676:AAHV9ptQikS1ATSAfes2xJmB_aWme3H1bPg"
 
 BASE_URL = "https://api.telegram.org/bot{}/".format(TOKEN)
-
-code = requests.get(BASE_URL)
-
-if code == 200:
-    pass
-else:
-    sys.exit()
     
-
 def get_updates(offset=None):
     url = BASE_URL + "getUpdates"
     if offset:
