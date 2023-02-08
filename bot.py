@@ -1,7 +1,7 @@
 import json
 import sys
 import requests
-import ans
+import answer
 
 TOKEN = input('Token :')
 
