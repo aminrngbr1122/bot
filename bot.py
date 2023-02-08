@@ -5,13 +5,13 @@ import answer
 
 TOKEN = "6049447676:AAHV9ptQikS1ATSAfes2xJmB_aWme3H1bPg"
 
-BASE_URL = "https://api.telegram.org/bot{}/".format(TOKEN)
+BASE_URL = "https://api.telegram.org/bot{0}/".format(TOKEN)
     
 def get_updates(offset=None):
     url = BASE_URL + "getUpdates"
     if offset:
         url += "?offset={}".format(offset)
-    response = requests.get(urboyl)
+    response = requests.get(url)
     return json.loads(response.content.decode("utf8"))
 
 def get_last_update_id(updates):
