@@ -3,7 +3,7 @@ import sys
 import requests
 import answer
 
-TOKEN = ""
+TOKEN = input('Token : ')
 
 BASE_URL = "https://api.telegram.org/bot{0}/".format(TOKEN)
 
