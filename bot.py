@@ -3,10 +3,10 @@ import sys
 import requests
 import answer
 
-TOKEN = "6049447676:AAHV9ptQikS1ATSAfes2xJmB_aWme3H1bPg"
+TOKEN = ""
 
 BASE_URL = "https://api.telegram.org/bot{0}/".format(TOKEN)
-    
+
 def get_updates(offset=None):
     url = BASE_URL + "getUpdates"
     if offset:
@@ -33,6 +33,18 @@ def send_message(chat_id, text):
 def send_photo(chat_id, url):
     url = BASE_URL + "sendphoto"
     data = {"chat_id": chat_id, "photo": url}
+    response = requests.post(url, data=data)
+    return json.loads(response.content.decode("utf8"))
+
+def send_video(chat_id, url):
+    url = BASE_URL + "sendvideo"
+    data = {"chat_id": chat_id, "video": url}
+    response = requests.post(url, data=data)
+    return json.loads(response.content.decode("utf8"))
+
+def send_audio(chat_id, url):
+    url = BASE_URL + "sendaudio"
+    data = {"chat_id": chat_id, "audio": url}
     response = requests.post(url, data=data)
     return json.loads(response.content.decode("utf8"))
 
