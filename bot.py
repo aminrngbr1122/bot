@@ -1,21 +1,11 @@
 import json
 import sys
 import requests
-import answer
-
-
-def is_telegram_bot_token(text):
-    if len(text) != 43:
-        return False
-    for char in text:
-        if not char.isalnum():
-            return False
-    return True
-
+import ans
 
 TOKEN = input('Token :')
 
-if is_telegram_bot_token(TOKEN):
+if True:
 
     BASE_URL = "https://api.telegram.org/bot{0}/".format(TOKEN)
 
