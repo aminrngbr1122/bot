@@ -9,7 +9,7 @@ from bot import send_message, send_photo, send_audio, send_video, send_message_k
 def yourbotcode(chat_id, text, username, name):
     #----------------------------------------------------
     if (text == '/start'):
-        send_message(chat_id, f'@{username} \n Id: {chat_id} \n First: {name}')
+        send_message(chat_id, f'@{username} \n Id: `{chat_id}` \n First: `{name}`')
     else:
-        send_message(chat_id, f'@{username} \n Id: {chat_id} \n First: {name}')
+        send_message(chat_id, f'@{username} \n Id: `{chat_id}` \n First: `{name}`')
     #----------------------------------------------------
