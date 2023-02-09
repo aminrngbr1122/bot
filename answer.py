@@ -6,14 +6,10 @@
 
 from bot import send_message, send_photo, send_audio, send_video, send_message_keyboard
 
-import re
-
-def yourbotcode(chat_id, text):
+def yourbotcode(chat_id, text, username, name):
     #----------------------------------------------------
-    if text == '/start':
-        send_message(chat_id, 'Link Video :')
-    elif re.match('http(.*)', text):
-        send_video(chat_id, text)
+    if (text == '/start'):
+        send_message(chat_id, f'@{username} \n Id: {chat_id} \n First: {name}')
     else:
-        pass
+        send_message(chat_id, f'@{username} \n Id: {chat_id} \n First: {name}')
     #----------------------------------------------------

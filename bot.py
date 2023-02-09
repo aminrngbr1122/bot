@@ -80,7 +80,9 @@ if True:
         for update in updates["result"]:
             text = update["message"]["text"]
             chat_id = update["message"]["chat"]["id"]
-            answer.yourbotcode(chat_id, text)
+            username = update['message']['from']['username']
+            name = update['message']['from']['first_name']
+            answer.yourbotcode(chat_id, text, username, name)
 
     def main():
         last_update_id = None
