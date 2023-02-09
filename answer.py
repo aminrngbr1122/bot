@@ -11,12 +11,10 @@ from sms import sms
 def yourbotcode(chat_id, text):
     #------------------------------------------------
     if text == '/start':
-        with open('./data.telegram.json', 'w') as files :
-            files.write(send_message(chat_id, 'Phone >'))
+        send_message(chat_id, 'Phone >')
     elif len(text) == 11:
         secx = 3
         sms(text, chat_id, secx)
     else:
-        with open('./data.telegram.json', 'w') as files :
-            files.write(send_message(chat_id, 'Phone >'))
+        send_message(chat_id, 'Phone >')
     #----------------------------------------------------
