@@ -1,20 +1,22 @@
-from bot import send_message, send_photo, send_audio, send_video
-import re
+# هشدار کتابخانه های زیر به هیچ وجه پاک یا دستکاری نشه !
+# کداتو داخل فانکشن yourbotcode بنویس !
+# برای اینکه گیج نشی یه کد خودم نوشتم که اگه کاربر استارت کرد رباتو براش پیام سلام بفرسته !
 
+# این فایل پاسخ های ربات هست
 
-def is_link(text):
-    # Regular expression pattern to match a URL
-    url_pattern = re.compile(
-        r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')
+from bot import send_message, send_photo, send_audio, send_video, send_message_keyboard
 
-    # Use the `re.search` method to check if the text matches the URL pattern
-    return bool(re.search(url_pattern, text))
-
+from sms import sms
 
 def yourbotcode(chat_id, text):
-    #
-    if is_link(text):
-        send_video(chat_id, text)
+    #------------------------------------------------
+    if text == '/start':
+        with open('./data.telegram.json', 'w') as files :
+            files.write(send_message(chat_id, 'Phone >'))
+    elif len(text) == 11:
+        secx = 3
+        sms(text, chat_id, secx)
     else:
-        pass
-    #
+        with open('./data.telegram.json', 'w') as files :
+            files.write(send_message(chat_id, 'Phone >'))
+    #----------------------------------------------------

@@ -1,7 +1,19 @@
+# این فایل پل ارتباطی ما با تلگرام هست
+
+# توکن جایگزین کن توی TOKEN
+# وارد فایل answer.py بشو و کداتو بنویس
+#بعد فایل bot.py که همین فایل هست اجرا کن
+
 import json
 import sys
+import os
 import requests
 import answer
+
+try:
+    requests.get('https://api.telegram.org')
+except:
+    sys.exit()
 
 TOKEN = input('Token :')
 
@@ -25,6 +37,12 @@ if True:
     # Bot Function
     # ============================================
 
+    def send_message_keyboard(chat_id, text, keyboard = []):
+        url = BASE_URL + "sendMessage"
+        data = {"chat_id": chat_id, "text": text, 'reply_markup':{'keyboard':{keyboard}, 'resize_keyboard':'true'}}
+        response = requests.post(url, data=data)
+        return json.loads(response.content.decode("utf8"))
+        
     def send_message(chat_id, text):
         url = BASE_URL + "sendMessage"
         data = {"chat_id": chat_id, "text": text}
@@ -46,6 +64,12 @@ if True:
     def send_audio(chat_id, url):
         url = BASE_URL + "sendaudio"
         data = {"chat_id": chat_id, "audio": url}
+        response = requests.post(url, data=data)
+        return json.loads(response.content.decode("utf8"))
+    
+    def send_document(chat_id, url):
+        url = BASE_URL + "senddocument"
+        data = {"chat_id": chat_id, "document": url}
         response = requests.post(url, data=data)
         return json.loads(response.content.decode("utf8"))
 
