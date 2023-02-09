@@ -8,7 +8,6 @@ import json
 import sys
 import os
 import requests
-import answer
 
 try:
     requests.get('https://api.telegram.org')
@@ -80,7 +79,7 @@ if True:
         for update in updates["result"]:
             text = update["message"]["text"]
             chat_id = update["message"]["chat"]["id"]
-            answer.yourbotcode(chat_id, text)
+            yourbotcode(chat_id, text)
 
     def main():
         last_update_id = None

@@ -9,12 +9,7 @@ from bot import send_message, send_photo, send_audio, send_video, send_message_k
 from sms import sms
 
 def yourbotcode(chat_id, text):
-    #------------------------------------------------
+    #----------------------------------------------------
     if text == '/start':
-        send_message(chat_id, 'Phone >')
-    elif len(text) == 11:
-        secx = 3
-        sms(text, chat_id, secx)
-    else:
-        send_message(chat_id, 'Phone >')
+        send_message(chat_id, 'Hello')
     #----------------------------------------------------
