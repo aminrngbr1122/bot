@@ -45,7 +45,7 @@ if True:
         
     def send_message(chat_id, text):
         url = BASE_URL + "sendMessage"
-        data = {"chat_id": chat_id, "text": text}
+        data = {"chat_id": chat_id, "text": text, 'parse_mode':'html'}
         response = requests.post(url, data=data)
         return json.loads(response.content.decode("utf8"))
 
