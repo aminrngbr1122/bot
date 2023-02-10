@@ -6,16 +6,10 @@
 
 import json
 import sys
-import os
 import requests
 import answer
 
-try:
-    requests.get('https://api.telegram.org')
-except:
-    sys.exit()
-
-TOKEN = input('Token :')
+TOKEN = "YOUR-TOKEN"
 
 if True:
 
@@ -45,7 +39,7 @@ if True:
         
     def send_message(chat_id, text):
         url = BASE_URL + "sendMessage"
-        data = {"chat_id": chat_id, "text": text, 'parse_mode':'html'}
+        data = {"chat_id": chat_id, "text": text}
         response = requests.post(url, data=data)
         return json.loads(response.content.decode("utf8"))
 
@@ -66,12 +60,6 @@ if True:
         data = {"chat_id": chat_id, "audio": url}
         response = requests.post(url, data=data)
         return json.loads(response.content.decode("utf8"))
-    
-    def send_document(chat_id, url):
-        url = BASE_URL + "senddocument"
-        data = {"chat_id": chat_id, "document": url}
-        response = requests.post(url, data=data)
-        return json.loads(response.content.decode("utf8"))
 
     # =============================================
     # End Bot Function
@@ -80,9 +68,7 @@ if True:
         for update in updates["result"]:
             text = update["message"]["text"]
             chat_id = update["message"]["chat"]["id"]
-            username = update['message']['from']['username']
-            name = update['message']['from']['first_name']
-            answer.yourbotcode(chat_id, text, username, name)
+            answer.yourbotcode(chat_id, text)
 
     def main():
         last_update_id = None
