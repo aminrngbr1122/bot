@@ -9,7 +9,7 @@ import sys
 import requests
 import answer
 
-TOKEN = "5676700629:AAF-FeoE8ujYhfsPc5Cm3M0UwpnlyiCCY2I"
+TOKEN = input('t :')
 
 if True:
 
